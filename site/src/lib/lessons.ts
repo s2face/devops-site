@@ -59,5 +59,8 @@ export async function getLessonBySlug(slug: string, level: LessonLevel): Promise
 
 export async function getAllSlugs(level: LessonLevel): Promise<string[]> {
   const lessons = await getAllLessons(level);
-  return lessons.map(l => l.frontmatter.lesson.slug);
+  // Фильтруем уроки с пустыми slug
+  return lessons
+    .map(l => l.frontmatter.lesson.slug)
+    .filter(slug => slug && slug.length > 0);
 }
