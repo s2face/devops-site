@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Lessons — Изучай DevOps с нуля</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-terminal-fill"></i> DevOps Lessons
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="level1.html">Level 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="level2.html">Level 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="level3.html">Level 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold text-white">
+                        Изучай <span class="text-primary">DevOps</span> с нуля до профи
+                    </h1>
+                    <p class="lead text-white-50">
+                        Практический курс по DevOps: Linux, Git, Docker, CI/CD и многое другое
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="level1.html" class="btn btn-primary btn-lg">
+                            <i class="bi bi-play-fill"></i> Начать обучение
+                        </a>
+                        <a href="#features" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-info-circle"></i> Узнать больше
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230d6efd;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%230dcaf0;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='80' fill='url(%23grad)' opacity='0.3'/%3E%3Crect x='60' y='50' width='80' height='60' rx='5' fill='none' stroke='%230dcaf0' stroke-width='3'/%3E%3Cpath d='M70 80 L100 110 L130 70' fill='none' stroke='%230d6efd' stroke-width='3'/%3E%3Ccircle cx='140' cy='140' r='30' fill='none' stroke='%230dcaf0' stroke-width='3'/%3E%3Cpath d='M130 140 L150 140 M140 130 L140 150' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E" alt="DevOps" class="img-fluid hero-image" style="max-width: 300px;">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Особенности курса -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Почему этот курс?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm feature-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="bi bi-book"></i>
+                            </div>
+                            <h5 class="card-title">От простого к сложному</h5>
+                            <p class="card-text">Пошаговая программа: от основ Linux до сложных CI/CD пайплайнов</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm feature-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="bi bi-pc-display"></i>
+                            </div>
+                            <h5 class="card-title">Много практики</h5>
+                            <p class="card-text">Каждый урок содержит практические задания для закрепления материала</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm feature-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="bi bi-diagram-3"></i>
+                            </div>
+                            <h5 class="card-title">Структурированность</h5>
+                            <p class="card-text">Чёткая матрица зависимостей между уроками для эффективного обучения</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Уровни обучения -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Программа обучения</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow level-card level-1">
+                        <div class="card-body">
+                            <div class="level-badge">Beginner</div>
+                            <h3 class="card-title">Level 1</h3>
+                            <p class="text-muted">Основы DevOps</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check-circle-fill text-success"></i> Linux (Ubuntu)</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> Bash и скрипты</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> Git и branching</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> Docker основы</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> CI/CD введение</li>
+                            </ul>
+                            <div class="mt-4">
+                                <span class="badge bg-primary">15 уроков</span>
+                                <span class="badge bg-success">Готов</span>
+                            </div>
+                            <a href="level1.html" class="btn btn-primary w-100 mt-3">
+                                Перейти к курсу <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow level-card level-2">
+                        <div class="card-body">
+                            <div class="level-badge bg-warning">Intermediate</div>
+                            <h3 class="card-title">Level 2</h3>
+                            <p class="text-muted">Продвинутый DevOps</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-circle-fill text-muted"></i> Kubernetes</li>
+                                <li><i class="bi bi-circle-fill text-muted"></i> Monitoring & Logging</li>
+                                <li><i class="bi bi-circle-fill text-muted"></i> Infrastructure as Code</li>
+                                <li><i class="bi bi-circle-fill text-muted"></i> Cloud Platforms</li>
+                                <li><i class="bi bi-circle-fill text-muted"></i> Security Best Practices</li>
+                            </ul>
+                            <div class="mt-4">
+                                <span class="badge bg-secondary">В разработке</span>
+                            </div>
+                            <button class="btn btn-outline-secondary w-100 mt-3" disabled>
+                                Скоро <i class="bi bi-hourglass-split"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow level-card level-3">
+                        <div class="card-body">
+                            <div class="level-badge bg-danger">Advanced</div>
+                            <h3 class="card-title">Level 3</h3>
+                            <p class="text-muted">Экспертный DevOps</p>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-circle-fill text-muted"></i> Microservices Architecture</li>
+                                <li><i class="bi bi-circle-fill text-muted"></i> Service Mesh</li>
+                                <li><i class="bi bi-circle-fill text-muted"></i> GitOps</li>
+                                <li><i class="bi bi-circle-fill text-muted"></i> SRE Practices</li>
+                                <li><i class="bi bi-circle-fill text-muted"></i> Performance Tuning</li>
+                            </ul>
+                            <div class="mt-4">
+                                <span class="badge bg-secondary">Планируется</span>
+                            </div>
+                            <button class="btn btn-outline-secondary w-100 mt-3" disabled>
+                                В планах <i class="bi bi-clock"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Статистика -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number text-primary">15</div>
+                        <div class="stat-label">Уроков</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number text-primary">5</div>
+                        <div class="stat-label">Логических блоков</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number text-primary">100%</div>
+                        <div class="stat-label">Готовность Level 1</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number text-primary">∞</div>
+                        <div class="stat-label">Практики</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Призыв к действию -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2>Готовы начать?</h2>
+            <p class="lead">Первый урок уже ждёт вас</p>
+            <a href="lessons/level1/lesson01/index.html" class="btn btn-light btn-lg">
+                <i class="bi bi-book-open"></i> Открыть первый урок
+            </a>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2026 DevOps Lessons. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3"><i class="bi bi-github"></i> GitHub</a>
+                    <a href="#" class="text-white"><i class="bi bi-telegram"></i> Telegram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

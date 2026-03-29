@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 3 — Основы Bash| DevOps Lessons</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/lesson.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal-fill"></i> DevOps Lessons
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../level1.html">Level 1</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Боковая панель с навигацией по уроку -->
+    <div class="lesson-container">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <h6>Содержание</h6>
+                <button class="btn btn-sm btn-outline-light" id="toggleSidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+            <nav id="tableOfContents"></nav>
+            
+            <div class="sidebar-footer">
+                <div class="progress mb-2">
+                    <div class="progress-bar" id="readingProgress" role="progressbar" style="width: 0%"></div>
+                </div>
+                <small class="text-muted">Прогресс чтения</small>
+            </div>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="lesson-content">
+            <div class="container py-4">
+                <!-- Хлебные крошки -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../index.html">Главная</a></li>
+                        <li class="breadcrumb-item"><a href="../level1.html">Level 1</a></li>
+                        <li class="breadcrumb-item active">Урок 3</li>
+                    </ol>
+                </nav>
+
+                <!-- Заголовок урока -->
+                <div class="lesson-header mb-5">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+                        <div>
+                            <span class="badge bg-primary mb-2">Урок 3</span>
+                            <h1 class="display-6 fw-bold mb-3">Основы Bash</h1>
+                            <p class="lead text-muted">
+                                История DevOps, культура CALMS, примеры внедрения и преимущества методологии
+                            </p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-success" id="markComplete">
+                                <i class="bi bi-check-circle"></i> Отметить как пройденный
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-meta mt-3">
+                        <span class="me-3"><i class="bi bi-clock"></i> ~30 мин</span>
+                        <span class="me-3"><i class="bi bi-file-text"></i> Статья</span>
+                        <span><i class="bi bi-folder"></i> Level 1 — Beginner</span>
+                    </div>
+                </div>
+
+                <!-- Навигация между уроками -->
+                <div class="lesson-navigation mb-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="../../level1.html" class="btn btn-outline-secondary w-100 text-start">
+                                <i class="bi bi-arrow-left"></i> К списку уроков
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="../lesson02/index.html" class="btn btn-primary w-100 text-end">
+                                Следующий урок: Ubuntu Server <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тело урока (Markdown контент) -->
+                <article class="markdown-body" id="lessonContent">
+                    <h2 id="что-такое-devops">Что такое DevOps?</h2>
+                    <p>
+                        <strong>DevOps</strong> — это культура, практики и инструменты, которые объединяют разработку (Development) 
+                        и эксплуатацию (Operations) для ускорения цикла разработки программного обеспечения при обеспечении 
+                        высокого качества продукта.
+                    </p>
+
+                    <h3 id="история-появления">История появления</h3>
+                    <p>
+                        Термин DevOps был введён Патриком Дебуа (Patrick Debois) в 2009 году. Концепция возникла как ответ 
+                        на проблему «стены непонимания» между разработчиками и системными администраторами.
+                    </p>
+                    
+                    <blockquote class="blockquote">
+                        <p>DevOps — это не инструмент и не должность. Это культура сотрудничества.</p>
+                        <footer class="blockquote-footer">Патрик Дебуа</footer>
+                    </blockquote>
+
+                    <h3 id="модель-calms">Модель CALMS</h3>
+                    <p>
+                        Ключевые принципы DevOps описываются моделью <strong>CALMS</strong>:
+                    </p>
+
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <strong>C</strong>ulture (Культура) — сотрудничество, доверие, общая ответственность
+                                </li>
+                                <li class="mb-2">
+                                    <strong>A</strong>utomation (Автоматизация) — CI/CD, инфраструктура как код
+                                </li>
+                                <li class="mb-2">
+                                    <strong>L</strong>ean (Бережливость) — устранение потерь, непрерывное улучшение
+                                </li>
+                                <li class="mb-2">
+                                    <strong>M</strong>easurement (Измерения) — метрики, мониторинг, обратная связь
+                                </li>
+                                <li>
+                                    <strong>S</strong>haring (Обмен) — знания, инструменты, лучшие практики
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 id="преимущества-devops">Преимущества DevOps</h3>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success">
+                                        <i class="bi bi-graph-up-arrow"></i> Скорость
+                                    </h5>
+                                    <p class="card-text">
+                                        Более частые релизы, быстрое время выхода на рынок
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">
+                                        <i class="bi bi-shield-check"></i> Надёжность
+                                    </h5>
+                                    <p class="card-text">
+                                        Стабильность системы, быстрое восстановление после сбоев
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-info">
+                                <div class="card-body">
+                                    <h5 class="card-title text-info">
+                                        <i class="bi bi-people"></i> Сотрудничество
+                                    </h5>
+                                    <p class="card-text">
+                                        Лучшая коммуникация между командами
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-warning">
+                                <div class="card-body">
+                                    <h5 class="card-title text-warning">
+                                        <i class="bi bi-lightbulb"></i> Инновации
+                                    </h5>
+                                    <p class="card-text">
+                                        Больше времени на улучшения, меньше на рутину
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 id="практическое-задание">Практическое задание</h3>
+                    <div class="alert alert-primary">
+                        <h5><i class="bi bi-pencil-square"></i> Задание 1</h5>
+                        <p>Изучите историю компании, которая успешно внедрила DevOps (например, Netflix, Amazon, Etsy).</p>
+                        <p><strong>Что нужно сделать:</strong></p>
+                        <ol>
+                            <li>Найдите информацию о практиках DevOps в выбранной компании</li>
+                            <li>Опишите, какие принципы CALMS они применяют</li>
+                            <li>Подготовьте краткий отчёт (3-5 предложений)</li>
+                        </ol>
+                    </div>
+
+                    <h3 id="ключевые-термины">Ключевые термины</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Термин</th>
+                                    <th>Описание</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>CI/CD</code></td>
+                                    <td>Continuous Integration / Continuous Delivery — непрерывная интеграция и доставка</td>
+                                </tr>
+                                <tr>
+                                    <td><code>IaC</code></td>
+                                    <td>Infrastructure as Code — инфраструктура как код</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Agile</code></td>
+                                    <td>Гибкая методология разработки ПО</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Scrum</code></td>
+                                    <td>Фреймворк для управления итеративной разработкой</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 id="следующие-шаги">Следующие шаги</h3>
+                    <p>
+                        В следующем уроке мы установим <strong>Ubuntu Server</strong> в VirtualBox и настроим базовый доступ по SSH.
+                        Это будет наша первая рабочая среда для дальнейших экспериментов.
+                    </p>
+                </article>
+
+                <!-- Навигация между уроками (внизу) -->
+                <div class="lesson-navigation mt-5 pt-4 border-top">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="../../level1.html" class="btn btn-outline-secondary w-100 text-start">
+                                <i class="bi bi-arrow-left"></i> К списку уроков
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="../lesson02/index.html" class="btn btn-primary w-100 text-end">
+                                Следующий урок: Ubuntu Server <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2026 DevOps Lessons. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3"><i class="bi bi-github"></i> GitHub</a>
+                    <a href="#" class="text-white"><i class="bi bi-telegram"></i> Telegram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/languages/bash.min.js"></script>
+    <script src="../../scripts/lesson.js"></script>
+</body>
+</html>

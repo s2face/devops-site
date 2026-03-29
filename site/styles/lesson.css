@@ -1,0 +1,321 @@
+/* ========================================
+   Стили для страницы урока
+   ======================================== */
+
+.lesson-container {
+    display: flex;
+    min-height: calc(100vh - 56px);
+}
+
+/* Боковая панель */
+.lesson-sidebar {
+    width: 280px;
+    background: var(--dark-bg);
+    color: white;
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    padding: 20px;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+#tableOfContents {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#tableOfContents li {
+    margin-bottom: 8px;
+}
+
+#tableOfContents a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+#tableOfContents a:hover,
+#tableOfContents a.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#tableOfContents ul {
+    list-style: none;
+    padding-left: 15px;
+    margin-top: 5px;
+}
+
+.sidebar-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer .progress {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer .progress-bar {
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+}
+
+/* Основной контент */
+.lesson-content {
+    flex: 1;
+    background: var(--light-bg);
+    overflow-y: auto;
+}
+
+/* Markdown стили */
+.markdown-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #24292e;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #1a1a1a;
+}
+
+.markdown-body h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5em;
+}
+
+.markdown-body h2 {
+    font-size: 1.75rem;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+}
+
+.markdown-body h3 {
+    font-size: 1.5rem;
+}
+
+.markdown-body h4 {
+    font-size: 1.25rem;
+}
+
+.markdown-body p {
+    margin-bottom: 1.5em;
+}
+
+.markdown-body a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.markdown-body a:hover {
+    text-decoration: underline;
+    color: #0b5ed7;
+}
+
+.markdown-body code {
+    background: #f6f8fa;
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    color: #e83e8c;
+}
+
+.markdown-body pre {
+    background: #0d1117;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.5em;
+}
+
+.markdown-body pre code {
+    background: transparent;
+    padding: 0;
+    color: #c9d1d9;
+}
+
+.markdown-body blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding: 0.5em 1em;
+    margin: 1.5em 0;
+    color: #6a737d;
+    background: rgba(13, 110, 253, 0.05);
+    border-radius: 0 8px 8px 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    margin-bottom: 1.5em;
+    padding-left: 2em;
+}
+
+.markdown-body li {
+    margin-bottom: 0.5em;
+}
+
+.markdown-body table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1.5em;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+    padding: 12px 16px;
+    border: 1px solid #dfe2e5;
+}
+
+.markdown-body table th {
+    background: #f6f8fa;
+    font-weight: 600;
+}
+
+.markdown-body table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.markdown-body img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+.markdown-body hr {
+    border: none;
+    border-top: 2px solid #eaecef;
+    margin: 2em 0;
+}
+
+/* Заголовок урока */
+.lesson-header {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.lesson-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.lesson-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Навигация между уроками */
+.lesson-navigation .btn {
+    padding: 12px 20px;
+}
+
+/* Адаптивность для боковой панели */
+@media (max-width: 992px) {
+    .lesson-container {
+        flex-direction: column;
+    }
+
+    .lesson-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: auto;
+        max-height: 300px;
+    }
+
+    .sidebar-header {
+        position: sticky;
+        top: 0;
+        background: var(--dark-bg);
+        z-index: 10;
+    }
+}
+
+/* Скрытие боковой панели на мобильных */
+@media (max-width: 768px) {
+    .lesson-sidebar {
+        display: none;
+    }
+
+    .lesson-sidebar.show {
+        display: block;
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        max-height: none;
+    }
+}
+
+/* Подсветка пройденного урока */
+.lesson-card.completed {
+    border-color: var(--success-color);
+    background: rgba(25, 135, 84, 0.05);
+}
+
+.lesson-card.completed::after {
+    content: '\F26A';
+    font-family: 'bootstrap-icons';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--success-color);
+    font-size: 1.5rem;
+}
+
+/* Кнопка отметки о прохождении */
+#markComplete.completed {
+    background: var(--success-color);
+    color: white;
+    border-color: var(--success-color);
+}
+
+/* Индикатор текущего раздела */
+#tableOfContents a.active {
+    background: rgba(13, 110, 253, 0.2);
+    color: white;
+    border-left: 3px solid var(--primary-color);
+}

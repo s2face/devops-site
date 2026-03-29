@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1 — Beginner | DevOps Lessons</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-terminal-fill"></i> DevOps Lessons
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="level1.html">Level 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="level2.html">Level 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="level3.html">Level 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Заголовок уровня -->
+    <header class="level-header bg-primary">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="level-badge bg-light text-primary">Beginner</div>
+                    <h1 class="text-white display-5 fw-bold">Level 1 — Основы DevOps</h1>
+                    <p class="text-white-50 lead">
+                        15 уроков для погружения в мир DevOps: от установки Linux до CI/CD пайплайнов
+                    </p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="progress-circle-wrapper">
+                        <svg class="progress-circle" viewBox="0 0 100 100">
+                            <circle class="progress-bg" cx="50" cy="50" r="45"/>
+                            <circle class="progress-bar" cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="0"/>
+                        </svg>
+                        <div class="progress-text">
+                            <span class="progress-value">100%</span>
+                            <span class="progress-label">Готов</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Матрица зависимостей -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="bi bi-diagram-3-fill text-primary"></i> Матрица зависимостей
+                    </h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-sm mb-0 dependency-table">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Урок</th>
+                                    <th>Тема</th>
+                                    <th>Требует</th>
+                                    <th>Требуется для</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson01/index.html" class="lesson-link">1</a></td>
+                                    <td>Введение в DevOps</td>
+                                    <td>—</td>
+                                    <td><a href="#lesson02" class="badge bg-primary">2</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson02/index.html" class="lesson-link">2</a></td>
+                                    <td>Ubuntu Server</td>
+                                    <td><a href="#lesson01" class="badge bg-secondary">1</a></td>
+                                    <td>
+                                        <a href="#lesson03" class="badge bg-primary">3</a>
+                                        <a href="#lesson04" class="badge bg-primary">4</a>
+                                        <a href="#lesson11" class="badge bg-primary">11</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson03/index.html" class="lesson-link">3</a></td>
+                                    <td>Основы Bash</td>
+                                    <td><a href="#lesson02" class="badge bg-primary">2</a></td>
+                                    <td>
+                                        <a href="#lesson04" class="badge bg-primary">4</a>
+                                        <a href="#lesson05" class="badge bg-primary">5</a>
+                                        <a href="#lesson10" class="badge bg-primary">10</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson04/index.html" class="lesson-link">4</a></td>
+                                    <td>Пользователи и права</td>
+                                    <td><a href="#lesson02" class="badge bg-primary">2</a>, <a href="#lesson03" class="badge bg-primary">3</a></td>
+                                    <td><a href="#lesson05" class="badge bg-primary">5</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson05/index.html" class="lesson-link">5</a></td>
+                                    <td>Файловая система</td>
+                                    <td><a href="#lesson02" class="badge bg-primary">2</a>, <a href="#lesson03" class="badge bg-primary">3</a></td>
+                                    <td><a href="#lesson06" class="badge bg-primary">6</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson06/index.html" class="lesson-link">6</a></td>
+                                    <td>Git — основы</td>
+                                    <td><a href="#lesson03" class="badge bg-primary">3</a></td>
+                                    <td><a href="#lesson07" class="badge bg-primary">7</a>, <a href="#lesson15" class="badge bg-primary">15</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson07/index.html" class="lesson-link">7</a></td>
+                                    <td>Git Branching</td>
+                                    <td><a href="#lesson06" class="badge bg-primary">6</a></td>
+                                    <td><a href="#lesson08" class="badge bg-primary">8</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson08/index.html" class="lesson-link">8</a></td>
+                                    <td>SSH</td>
+                                    <td><a href="#lesson02" class="badge bg-primary">2</a>, <a href="#lesson03" class="badge bg-primary">3</a>, <a href="#lesson09" class="badge bg-primary">9</a></td>
+                                    <td><a href="#lesson10" class="badge bg-primary">10</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson09/index.html" class="lesson-link">9</a></td>
+                                    <td>Сети</td>
+                                    <td><a href="#lesson02" class="badge bg-primary">2</a>, <a href="#lesson03" class="badge bg-primary">3</a></td>
+                                    <td><a href="#lesson08" class="badge bg-primary">8</a>, <a href="#lesson10" class="badge bg-primary">10</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson10/index.html" class="lesson-link">10</a></td>
+                                    <td>Bash-скрипты</td>
+                                    <td><a href="#lesson03" class="badge bg-primary">3</a>, <a href="#lesson08" class="badge bg-primary">8</a></td>
+                                    <td><a href="#lesson13" class="badge bg-primary">13</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson11/index.html" class="lesson-link">11</a></td>
+                                    <td>Пакетные менеджеры</td>
+                                    <td><a href="#lesson02" class="badge bg-primary">2</a></td>
+                                    <td><a href="#lesson12" class="badge bg-primary">12</a>, <a href="#lesson13" class="badge bg-primary">13</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson12/index.html" class="lesson-link">12</a></td>
+                                    <td>Systemd</td>
+                                    <td><a href="#lesson02" class="badge bg-primary">2</a>, <a href="#lesson11" class="badge bg-primary">11</a></td>
+                                    <td><a href="#lesson13" class="badge bg-primary">13</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson13/index.html" class="lesson-link">13</a></td>
+                                    <td>Docker — основы</td>
+                                    <td><a href="#lesson02" class="badge bg-primary">2</a>, <a href="#lesson03" class="badge bg-primary">3</a>, <a href="#lesson11" class="badge bg-primary">11</a></td>
+                                    <td><a href="#lesson14" class="badge bg-primary">14</a>, <a href="#lesson15" class="badge bg-primary">15</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson14/index.html" class="lesson-link">14</a></td>
+                                    <td>Dockerfile</td>
+                                    <td><a href="#lesson13" class="badge bg-primary">13</a></td>
+                                    <td><a href="#lesson15" class="badge bg-primary">15</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="lessons/level1/lesson15/index.html" class="lesson-link">15</a></td>
+                                    <td>CI/CD</td>
+                                    <td><a href="#lesson06" class="badge bg-primary">6</a>, <a href="#lesson13" class="badge bg-primary">13</a>, <a href="#lesson14" class="badge bg-primary">14</a></td>
+                                    <td>Level 2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Список уроков -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="mb-4">Список уроков</h2>
+            <div class="row g-4">
+                <!-- Урок 1 -->
+                <div class="col-md-6 col-lg-4" id="lesson01">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 1</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Введение в DevOps</h5>
+                            <p class="card-text text-muted">
+                                История DevOps, культура CALMS, примеры внедрения и преимущества методологии
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~30 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson01/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 2 -->
+                <div class="col-md-6 col-lg-4" id="lesson02">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 2</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Ubuntu Server</h5>
+                            <p class="card-text text-muted">
+                                Установка VirtualBox, настройка Ubuntu Server, базовая конфигурация SSH
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~45 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson02/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 3 -->
+                <div class="col-md-6 col-lg-4" id="lesson03">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 3</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Основы Bash</h5>
+                            <p class="card-text text-muted">
+                                Команды Bash, пайпы, управление процессами, навигация по файловой системе
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~60 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson03/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 4 -->
+                <div class="col-md-6 col-lg-4" id="lesson04">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 4</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Пользователи и права</h5>
+                            <p class="card-text text-muted">
+                                Управление пользователями (useradd), права доступа (chmod, chown), sudo
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~45 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson04/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 5 -->
+                <div class="col-md-6 col-lg-4" id="lesson05">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 5</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Файловая система</h5>
+                            <p class="card-text text-muted">
+                                FHS, монтирование дисков, архивация (tar), синхронизация (rsync)
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~50 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson05/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 6 -->
+                <div class="col-md-6 col-lg-4" id="lesson06">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 6</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Git — основы</h5>
+                            <p class="card-text text-muted">
+                                Init, add, commit, push, pull. Основы работы с системой контроля версий
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~60 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson06/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 7 -->
+                <div class="col-md-6 col-lg-4" id="lesson07">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 7</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Git Branching</h5>
+                            <p class="card-text text-muted">
+                                Ветвление, слияние (merge), rebase, stash. Продвинутые техники Git
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~60 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson07/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 8 -->
+                <div class="col-md-6 col-lg-4" id="lesson08">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 8</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">SSH</h5>
+                            <p class="card-text text-muted">
+                                SSH-ключи (ssh-keygen), туннелирование, конфигурация SSH config
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~45 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson08/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 9 -->
+                <div class="col-md-6 col-lg-4" id="lesson09">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 9</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Сети</h5>
+                            <p class="card-text text-muted">
+                                IP-адресация, DNS, TCP/UDP, настройка фаервола (ufw)
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~60 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson09/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 10 -->
+                <div class="col-md-6 col-lg-4" id="lesson10">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 10</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Bash-скрипты</h5>
+                            <p class="card-text text-muted">
+                                Переменные, циклы, функции, планировщик задач (cron)
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~90 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson10/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 11 -->
+                <div class="col-md-6 col-lg-4" id="lesson11">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 11</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Пакетные менеджеры</h5>
+                            <p class="card-text text-muted">
+                                Работа с apt, dpkg, yum, dnf. Установка и управление пакетами
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~40 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson11/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 12 -->
+                <div class="col-md-6 col-lg-4" id="lesson12">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 12</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Systemd</h5>
+                            <p class="card-text text-muted">
+                                Управление службами (systemctl), логи (journalctl), unit-файлы
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~50 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson12/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 13 -->
+                <div class="col-md-6 col-lg-4" id="lesson13">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 13</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Docker — основы</h5>
+                            <p class="card-text text-muted">
+                                Контейнеры: docker run, ps, volumes, ports. Основы контейнеризации
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~60 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson13/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 14 -->
+                <div class="col-md-6 col-lg-4" id="lesson14">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 14</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">Dockerfile</h5>
+                            <p class="card-text text-muted">
+                                Создание образов: FROM, COPY, RUN, multi-stage сборки
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~60 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson14/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урок 15 -->
+                <div class="col-md-6 col-lg-4" id="lesson15">
+                    <div class="card h-100 lesson-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">Урок 15</span>
+                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Готов</span>
+                            </div>
+                            <h5 class="card-title">CI/CD</h5>
+                            <p class="card-text text-muted">
+                                Непрерывная интеграция и доставка: GitHub Actions, workflow, secrets
+                            </p>
+                            <div class="lesson-meta">
+                                <span class="me-3"><i class="bi bi-clock"></i> ~90 мин</span>
+                                <span><i class="bi bi-file-text"></i> Статья + Практика</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="lessons/level1/lesson15/index.html" class="btn btn-primary w-100">
+                                <i class="bi bi-book-open"></i> Открыть урок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Навигация по уровням -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h3 class="mb-4">Другие уровни</h3>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="index.html" class="btn btn-outline-primary">
+                    <i class="bi bi-house"></i> На главную
+                </a>
+                <a href="level2.html" class="btn btn-outline-warning" disabled>
+                    <i class="bi bi-hourglass-split"></i> Level 2 (В разработке)
+                </a>
+                <a href="level3.html" class="btn btn-outline-danger" disabled>
+                    <i class="bi bi-clock"></i> Level 3 (В планах)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2026 DevOps Lessons. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3"><i class="bi bi-github"></i> GitHub</a>
+                    <a href="#" class="text-white"><i class="bi bi-telegram"></i> Telegram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
