@@ -32,19 +32,26 @@ export function parseGlossary(content: string): Term[] {
   const glossaryRegex = /## (?:Глоссарий терминов урока|Глоссарий|Glossary)\n\n\|(.+?)(?=\n\n|\n## |$)/s;
   const match = content.match(glossaryRegex);
   if (!match) return [];
-  
+
   const lines = match[0].split('\n').filter(line => line.startsWith('|'));
-  if (lines.length < 3) return []; // Need header, separator, and data
-  
+  if (lines.length < 3) {
+    console.warn('Glossary table has insufficient rows (need header, separator, and data)');
+    return [];
+  }
+
   const terms: Term[] = [];
   for (let i = 2; i < lines.length; i++) {
     const parts = lines[i].split('|').map(p => p.trim());
+    // Проверяем, что есть минимум 4 колонки: | термин | расширение | объяснение |
     if (parts.length >= 4) {
       terms.push({
         term: parts[1],
         expansion: parts[2],
         explanation: parts[3]
       });
+    } else if (parts.length > 1 && parts[1]) {
+      // Если есть только термин, логируем предупреждение
+      console.warn(`Glossary term "${parts[1]}" has insufficient columns (${parts.length} found, need 4)`);
     }
   }
   return terms;

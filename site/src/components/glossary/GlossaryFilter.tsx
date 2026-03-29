@@ -14,26 +14,27 @@ export function GlossaryFilter({ terms }: { terms: (Term & { level: number })[] 
 
   return (
     <div>
-      <input 
-        type="text" 
-        placeholder="Поиск по глоссарию..." 
+      <input
+        type="text"
+        placeholder="Поиск по глоссарию..."
         value={search}
         onChange={e => setSearch(e.target.value)}
+        aria-label="Поиск по глоссарию"
         className="w-full max-w-md p-3 mb-6 border dark:border-gray-700 rounded bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary outline-none"
       />
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse">
+        <table className="w-full border-collapse" role="table" aria-label="Глоссарий терминов">
           <thead>
             <tr className="bg-gray-100 dark:bg-gray-800 text-left">
-              <th className="border dark:border-gray-700 p-3">Термин</th>
-              <th className="border dark:border-gray-700 p-3">Расшифровка</th>
-              <th className="border dark:border-gray-700 p-3">Объяснение</th>
-              <th className="border dark:border-gray-700 p-3 w-24">Уровень</th>
+              <th className="border dark:border-gray-700 p-3" scope="col">Термин</th>
+              <th className="border dark:border-gray-700 p-3" scope="col">Расшифровка</th>
+              <th className="border dark:border-gray-700 p-3" scope="col">Объяснение</th>
+              <th className="border dark:border-gray-700 p-3 w-24" scope="col">Уровень</th>
             </tr>
           </thead>
           <tbody>
-            {filtered.map((term, i) => (
-              <tr key={i} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+            {filtered.map((term) => (
+              <tr key={term.term} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                 <td className="border dark:border-gray-700 p-3 font-semibold text-primary">{term.term}</td>
                 <td className="border dark:border-gray-700 p-3">{term.expansion}</td>
                 <td className="border dark:border-gray-700 p-3">{term.explanation}</td>

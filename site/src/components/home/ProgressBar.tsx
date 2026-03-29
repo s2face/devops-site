@@ -1,25 +1,35 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+
+function getCompletedLessonsCount(): number {
+  if (typeof window === 'undefined') return 0;
+  
+  let count = 0;
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key?.startsWith('checklist-')) {
+      try {
+        const state = JSON.parse(localStorage.getItem(key) || '[]');
+        if (state.every(Boolean) && state.length > 0) count++;
+      } catch(e) {}
+    }
+  }
+  return count;
+}
 
 export function ProgressBar({ level, totalLessons }: { level: number, totalLessons: number }) {
   const [completed, setCompleted] = useState(0);
 
   useEffect(() => {
-    let count = 0;
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key?.startsWith('checklist-')) {
-        try {
-          const state = JSON.parse(localStorage.getItem(key) || '[]');
-          if (state.every(Boolean) && state.length > 0) count++;
-        } catch(e) {}
-      }
-    }
+    const count = getCompletedLessonsCount();
     setCompleted(Math.min(count, totalLessons));
   }, [totalLessons]);
 
-  const percent = totalLessons === 0 ? 0 : Math.round((completed / totalLessons) * 100);
+  const percent = useMemo(() => 
+    totalLessons === 0 ? 0 : Math.round((completed / totalLessons) * 100),
+    [completed, totalLessons]
+  );
 
   return (
     <div className="mt-4">

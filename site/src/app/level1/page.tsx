@@ -1,7 +1,8 @@
+import type { Metadata } from 'next';
 import { getAllLessons } from '@/lib/lessons';
 import { LessonList } from '@/components/level/LessonList';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Level 1: Beginner - DevOps Lessons',
 };
 
