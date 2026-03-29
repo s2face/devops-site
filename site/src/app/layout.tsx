@@ -10,6 +10,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin', 'cyrillic'], variable:
 export const metadata: Metadata = {
   title: 'DevOps Lessons',
   description: 'Образовательный портал для изучения DevOps',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
 };
 
 export default function RootLayout({

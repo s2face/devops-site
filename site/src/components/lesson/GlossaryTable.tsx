@@ -19,25 +19,26 @@ export function GlossaryTable({ glossary }: { glossary: Term[] }) {
     <section className="my-8 overflow-x-auto">
       <div className="flex justify-between items-center mb-4 min-w-[500px]">
         <h2 className="text-2xl font-bold">📖 Глоссарий</h2>
-        <button 
+        <button
           onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
           className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"
+          aria-label={`Сортировать по алфавиту ${sortOrder === 'asc' ? 'по убыванию' : 'по возрастанию'}`}
         >
           <ArrowUpDown className="w-4 h-4" />
           Сортировка {sortOrder === 'asc' ? '↑' : '↓'}
         </button>
       </div>
-      <table className="w-full border-collapse min-w-[500px]">
+      <table className="w-full border-collapse min-w-[500px]" role="table" aria-label="Глоссарий терминов">
         <thead>
           <tr className="bg-gray-100 dark:bg-gray-800 text-left">
-            <th className="border dark:border-gray-700 p-3">Термин</th>
-            <th className="border dark:border-gray-700 p-3">Расшифровка</th>
-            <th className="border dark:border-gray-700 p-3">Объяснение</th>
+            <th className="border dark:border-gray-700 p-3" scope="col">Термин</th>
+            <th className="border dark:border-gray-700 p-3" scope="col">Расшифровка</th>
+            <th className="border dark:border-gray-700 p-3" scope="col">Объяснение</th>
           </tr>
         </thead>
         <tbody>
-          {sorted.map((term, i) => (
-            <tr key={i} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+          {sorted.map((term) => (
+            <tr key={term.term} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
               <td className="border dark:border-gray-700 p-3 font-semibold text-primary">{term.term}</td>
               <td className="border dark:border-gray-700 p-3">{term.expansion}</td>
               <td className="border dark:border-gray-700 p-3">{term.explanation}</td>

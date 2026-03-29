@@ -13,10 +13,48 @@ export interface ParsedMarkdown {
   rawContent: string;
 }
 
+function validateLessonFrontmatter(data: unknown): LessonFrontmatter {
+  if (!data || typeof data !== 'object') {
+    throw new Error('Invalid frontmatter: not an object');
+  }
+
+  const fm = data as Record<string, unknown>;
+
+  // Валидируем обязательные поля
+  if (!fm.lesson || typeof fm.lesson !== 'object') {
+    throw new Error('Invalid frontmatter: missing lesson object');
+  }
+
+  const lesson = fm.lesson as Record<string, unknown>;
+  const requiredLessonFields = ['title', 'slug', 'number', 'level', 'status'];
+  for (const field of requiredLessonFields) {
+    if (!(field in lesson)) {
+      throw new Error(`Invalid frontmatter: missing lesson.${field}`);
+    }
+  }
+
+  if (!fm.meta || typeof fm.meta !== 'object') {
+    throw new Error('Invalid frontmatter: missing meta object');
+  }
+
+  const meta = fm.meta as Record<string, unknown>;
+  const requiredMetaFields = ['description', 'keywords'];
+  for (const field of requiredMetaFields) {
+    if (!(field in meta)) {
+      throw new Error(`Invalid frontmatter: missing meta.${field}`);
+    }
+  }
+
+  return data as LessonFrontmatter;
+}
+
 export async function parseMarkdownFile(filePath: string): Promise<ParsedMarkdown> {
   const { readFile } = await import('fs/promises');
   const raw = await readFile(filePath, 'utf-8');
   const { data, content } = matter(raw);
+
+  // Валидируем frontmatter
+  const frontmatter = validateLessonFrontmatter(data);
 
   const mainContent = extractMainContent(content);
 
@@ -28,7 +66,7 @@ export async function parseMarkdownFile(filePath: string): Promise<ParsedMarkdow
     .process(mainContent);
 
   return {
-    frontmatter: data as LessonFrontmatter,
+    frontmatter,
     htmlContent: processed.toString(),
     rawContent: content,
   };

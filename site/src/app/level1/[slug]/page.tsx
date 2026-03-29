@@ -13,18 +13,22 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const lesson = await getLessonBySlug(params.slug, 1);
-  if (!lesson) return { title: 'Not Found' };
-  
+  if (!lesson) {
+    return { title: 'Not Found' };
+  }
+
   return {
     title: `${lesson.frontmatter.lesson.title} - Level 1`,
     description: lesson.frontmatter.meta.description,
+    keywords: lesson.frontmatter.meta.keywords,
   };
 }
 
 export default async function LessonPage({ params }: { params: { slug: string } }) {
   const lesson = await getLessonBySlug(params.slug, 1);
-  
+
   if (!lesson) {
+    console.error(`Lesson not found: ${params.slug}`);
     notFound();
   }
   

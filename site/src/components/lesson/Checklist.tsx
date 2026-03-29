@@ -12,11 +12,18 @@ export function Checklist({ checklist, lessonSlug }: { checklist: string[], less
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length === checklist.length) {
+        // Валидируем: массив той же длины, содержащий только boolean
+        if (
+          Array.isArray(parsed) && 
+          parsed.length === checklist.length &&
+          parsed.every((val: unknown): val is boolean => typeof val === 'boolean')
+        ) {
           setChecked(parsed);
           return;
         }
-      } catch(e) {}
+      } catch(e) {
+        console.warn(`Failed to parse checklist data for ${lessonSlug}:`, e);
+      }
     }
     setChecked(new Array(checklist.length).fill(false));
   }, [lessonSlug, checklist.length]);
@@ -44,15 +51,18 @@ export function Checklist({ checklist, lessonSlug }: { checklist: string[], less
       <ul className="space-y-3">
         {checklist.map((item, i) => (
           <li key={i} className="flex items-start gap-3">
-            <input
-              type="checkbox"
-              checked={checked[i] || false}
-              onChange={() => toggle(i)}
-              className="mt-1 w-5 h-5 rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer"
-            />
-            <span className={`text-lg leading-tight ${checked[i] ? 'line-through text-gray-400 dark:text-gray-500' : ''}`}>
-              {item}
-            </span>
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={checked[i] || false}
+                onChange={() => toggle(i)}
+                aria-label={`Отметить задачу: ${item}`}
+                className="mt-1 w-5 h-5 rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer"
+              />
+              <span className={`text-lg leading-tight ${checked[i] ? 'line-through text-gray-400 dark:text-gray-500' : ''}`}>
+                {item}
+              </span>
+            </label>
           </li>
         ))}
       </ul>

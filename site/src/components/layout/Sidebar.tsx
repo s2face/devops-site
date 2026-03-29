@@ -12,7 +12,7 @@ export async function Sidebar({ currentSlug, level }: { currentSlug: string; lev
   return (
     <aside className="w-64 flex-shrink-0 border-r dark:border-gray-800 p-6 hidden lg:block h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto">
       <h3 className="font-bold text-lg mb-4 text-gray-900 dark:text-gray-100">Уроки Level {level}</h3>
-      <nav className="space-y-2 mb-8">
+      <nav className="space-y-2 mb-8" aria-label="Навигация по урокам">
         {lessons.map((lesson) => {
           const isActive = lesson.frontmatter.lesson.slug === currentSlug;
           return (
@@ -20,8 +20,8 @@ export async function Sidebar({ currentSlug, level }: { currentSlug: string; lev
               key={lesson.frontmatter.lesson.slug}
               href={`/level${level}/${lesson.frontmatter.lesson.slug}`}
               className={`block py-2 px-3 rounded-md text-sm transition-colors ${
-                isActive 
-                  ? 'bg-primary text-white font-medium' 
+                isActive
+                  ? 'bg-primary text-white font-medium'
                   : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
               }`}
             >
