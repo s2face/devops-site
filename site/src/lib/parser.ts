@@ -15,7 +15,8 @@ export function parseLesson(markdown: string): Lesson {
 
 export function extractMainContent(content: string): string {
   // Return everything before ## Ключевые выводы урока or ## Key Takeaways
-  const match = content.match(/^(.*?)(?=## (?:Ключевые выводы урока|Key Takeaways))/s);
+  // Используем [\s\S] вместо флага s для совместимости
+  const match = content.match(/^([\s\S]*?)(?=## (?:Ключевые выводы урока|Key Takeaways))/);
   return match ? match[1].trim() : content.trim();
 }
 
