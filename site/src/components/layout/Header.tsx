@@ -17,8 +17,8 @@ export function Header() {
 
         <nav className="hidden md:flex items-center gap-6">
           <Link href="/level1" className="hover:text-primary transition-colors">Level 1</Link>
-          <span className="text-gray-400 cursor-not-allowed">Level 2</span>
-          <span className="text-gray-400 cursor-not-allowed">Level 3</span>
+          <Link href="/level2" className="hover:text-primary transition-colors">Level 2</Link>
+          <Link href="/level3" className="hover:text-primary transition-colors">Level 3</Link>
           <Link href="/glossary" className="hover:text-primary transition-colors">Глоссарий</Link>
           <Link href="/about" className="hover:text-primary transition-colors">О курсе</Link>
           <ThemeToggle />
@@ -40,8 +40,8 @@ export function Header() {
       {isMenuOpen && (
         <nav className="md:hidden border-t dark:border-gray-800 bg-white dark:bg-gray-900 px-4 py-4 space-y-4">
           <Link href="/level1" className="block hover:text-primary transition-colors">Level 1</Link>
-          <span className="block text-gray-400 cursor-not-allowed">Level 2</span>
-          <span className="block text-gray-400 cursor-not-allowed">Level 3</span>
+          <Link href="/level2" className="block hover:text-primary transition-colors">Level 2</Link>
+          <Link href="/level3" className="block hover:text-primary transition-colors">Level 3</Link>
           <Link href="/glossary" className="block hover:text-primary transition-colors">Глоссарий</Link>
           <Link href="/about" className="block hover:text-primary transition-colors">О курсе</Link>
         </nav>
