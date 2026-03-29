@@ -18,7 +18,8 @@ function validateLessonFrontmatter(data: unknown): LessonFrontmatter {
     console.warn('Invalid frontmatter: not an object, using empty defaults');
     return {
       lesson: { title: '', slug: '', number: 0, level: 1, status: 'draft' },
-      meta: { description: '', keywords: [] },
+      navigation: { previous: null, next: null, prerequisites: [] },
+      meta: { description: '', keywords: [], updated: new Date().toISOString().split('T')[0] },
     } as LessonFrontmatter;
   }
 
@@ -39,18 +40,24 @@ function validateLessonFrontmatter(data: unknown): LessonFrontmatter {
     }
   }
 
+  // Проверяем наличие navigation объекта
+  if (!fm.navigation || typeof fm.navigation !== 'object') {
+    console.warn('Invalid frontmatter: missing navigation object, using defaults');
+    fm.navigation = { previous: null, next: null, prerequisites: [] };
+  }
+
   // Проверяем наличие meta объекта
   if (!fm.meta || typeof fm.meta !== 'object') {
     console.warn('Invalid frontmatter: missing meta object, using defaults');
-    fm.meta = { description: '', keywords: [] };
+    fm.meta = { description: '', keywords: [], updated: new Date().toISOString().split('T')[0] };
   }
 
   const meta = fm.meta as Record<string, unknown>;
-  const requiredMetaFields = ['description', 'keywords'];
+  const requiredMetaFields = ['description', 'keywords', 'updated'];
   for (const field of requiredMetaFields) {
     if (!(field in meta)) {
       console.warn(`Invalid frontmatter: missing meta.${field}, using default`);
-      meta[field] = field === 'keywords' ? [] : '';
+      meta[field] = field === 'keywords' ? [] : field === 'updated' ? new Date().toISOString().split('T')[0] : '';
     }
   }
 
