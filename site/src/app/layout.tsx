@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
@@ -10,7 +10,12 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin', 'cyrillic'], variable:
 export const metadata: Metadata = {
   title: 'DevOps Lessons',
   description: 'Образовательный портал для изучения DevOps',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

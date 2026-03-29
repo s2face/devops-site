@@ -30,7 +30,8 @@ export function parseTakeaways(content: string): string[] {
 }
 
 export function parseGlossary(content: string): Term[] {
-  const glossaryRegex = /## (?:Глоссарий терминов урока|Глоссарий|Glossary)\n\n\|(.+?)(?=\n\n|\n## |$)/s;
+  // Используем [\s\S] вместо флага s для совместимости
+  const glossaryRegex = /## (?:Глоссарий терминов урока|Глоссарий|Glossary)\n\n\|([\s\S]+?)(?=\n\n|\n## |$)/;
   const match = content.match(glossaryRegex);
   if (!match) return [];
 
